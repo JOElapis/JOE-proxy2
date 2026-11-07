@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: joe-proxy2
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PROXY_ACCESS_KEY
+        sync: false
+      - key: ALLOWED_DOMAINS
+        value: youtube.com,unityroom.com,crazygames.com
