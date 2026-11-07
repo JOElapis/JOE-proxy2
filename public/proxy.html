@@ -1,0 +1,12 @@
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  try {
+    const target = new URL(input.value.trim());
+    if (target.protocol !== 'https:') {
+      throw new Error('HTTPSのURLを入力してください。');
+    }
+    location.href = `/api/proxy?url=${encodeURIComponent(target.href)}`;
+  } catch (e) {
+    error.textContent = e.message || 'URLを確認してください。';
+  }
+});
